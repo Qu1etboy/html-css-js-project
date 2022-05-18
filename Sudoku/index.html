@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0 user-scalable=no">
+        <title>Sudoku Game</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel = "icon" href = "https://i.pinimg.com/originals/fa/f0/6b/faf06b17944551850baee437c771d6a4.png" type = "image/x-icon">
+        <script src="script.js"></script>
+        <script src="sudoku.js"></script>    
+        <script src="boards.js"></script>
+    </head>
+    <body>
+        <h1>Sudoku Online</h1>
+        <hr>
+        <div>
+            <button class="btn" onclick="window.location.reload()">New Game</button>
+            <button class="btn"><a href="custom.html">Custom Sudoku</a></button>
+            <button class="btn" onclick="solve()">Solve</button>
+        </div>
+        <div id="board"></div>
+        <br>
+        <div id="digits"></div>
+        <input type="checkbox" id="check-for-mistakes" class="checkbox" onclick="showError()" checked>
+        <label>Auto-check for Mistakes</label>
+        <!-- <button class="btn">Auto-check for Mistakes</button> -->
+        
+
+        <footer>
+            <p>©2022 Weerawong Vonggatunyu. All Rights Reserved.</p>
+        </footer>    
+    </body>
+</html>

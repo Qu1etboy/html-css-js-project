@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container d-flex flex-column justify-content-center align-items-center">
+            <h1 style="margin-top: 50px;">Search github profile!</h1>
+            <div>
+                <input type="text" id="search" placeholder="search" class="rounded-pill" style="margin-top: 50px; padding: 5px 10px;">
+                <input type="submit" id="btn" class="btn btn-primary">
+            </div>
+            <div class="card rounded" style="width: 18rem; margin: 100px auto">
+                <img id="profile-img" class="rounded-top">
+                <div class="card-body">
+                    <h5 id="username" class="card-title"></h5>
+                    <h6 id="name"></h6>
+                    <p id="bio"></p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var profile = document.getElementById("profile-img");
+            var username = document.getElementById("username");
+            var myname = document.getElementById("name");
+            var bio = document.getElementById("bio");
+            
+            document.getElementById("search").addEventListener("keypress", (e) => {
+                if (e.key == "Enter") {
+                    getUser();
+                }
+            })
+
+            document.getElementById("btn").addEventListener("click", getUser);
+
+            function getUser() {
+                var input = document.getElementById("search").value;
+                
+                if (input != "") {
+                    fetch(`https://api.github.com/users/${input}`)
+                        .then(response => response.json())                   
+                        .then(data => {
+                            console.log(data.bio);
+                            profile.src = data.avatar_url;
+                            username.innerText = data.login;
+                            myname.innerText = data.name;
+                            bio.innerText = data.bio;
+                        })
+                        .catch(error => console.log("error"))
+                    
+                }
+
+                document.getElementById("search").value = "";
+            }
+
+        </script>
+    </body>
+</html>

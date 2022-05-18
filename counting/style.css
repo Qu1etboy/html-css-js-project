@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.container {
+    background-color: darkcyan;
+    border-radius: .5rem;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 50px;
+}
+
+#output {
+    text-align: center;
+    background-color: rgb(204, 229, 229);
+    border-radius: .25rem;
+}
+
+.btn {
+    font-size: 25px;
+    border: none;
+    border-radius: .25rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    background-color: rgb(141, 141, 141);
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Random background color generator</title>
+        <style>
+            body, div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-family: sans-serif;
+            }
+
+            button {
+                font-size: 20px;
+                padding: 10px;
+                border-radius: 25px;
+                cursor: pointer;
+            }
+
+            h1 {
+                text-shadow: 1px 1px 20px white;
+            }
+
+            div {
+                margin-top: 100px;
+            }
+    
+        </style>
+    
+    </head>
+    <body>
+        <div>
+            <h1>rgb(255, 255, 255)</h1>
+            <button onclick="generate()">Random color</button>
+        </div>
+    </body>
+
+    <script>
+        function generate() {
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+
+            let color = `rgb(${r}, ${g}, ${b})`
+            document.querySelector("h1").innerText = color;
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+</html>

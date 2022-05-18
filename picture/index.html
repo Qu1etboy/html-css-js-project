@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            * {
+                font-family: sans-serif;
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
+            .input {
+                margin: 10px auto;
+            }
+            img {
+                max-width: 1980px;
+                max-height: 1080px;
+                margin: 0 auto;
+            }
+            h1 {
+                text-align: center;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <!-- Upload image to display to browser -->
+        <div class="container">
+            <h1>Try upload image to display to browser</h1>
+            <div class="input">
+                <label for="file-img">Upload image:</label>
+                <input type="file" accept="image/*" id="file-img">
+                <input type="submit" id="submit">
+            </div>
+            <img id="output">
+        </div>
+
+        <script>
+            let submit = document.getElementById("submit");
+            submit.addEventListener("click", () => {
+                let image = document.getElementById("output");
+                let file = document.getElementById("file-img");
+                image.src = URL.createObjectURL(file.files[0]);
+            });
+        </script>
+    </body>
+</html>
